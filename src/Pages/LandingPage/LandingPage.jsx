@@ -16,7 +16,7 @@ function LandingPage() {
             planner into one streamlined app.
           </p>
           <Link to="/main-page">
-            <button className="btn">Get Started</button>
+            <button className="btn">Get Started.</button>
           </Link>
           <p>Available on Mac, Windows, iPad, iPhone, and the web.</p>
         </div>
