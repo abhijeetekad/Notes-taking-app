@@ -1,0 +1,45 @@
+.sidebar {
+  z-index: 1;
+  top: 0;
+  position: fixed;
+  left: 0;
+  width: 250px;
+  margin-top: 5rem;
+  padding-top: 30px;
+  padding-bottom: 7rem;
+  background-color: var(--secondary-color);
+  overflow-y: auto;
+  height: 100%;
+  /* transform: translate(-250px); uncomment for mobile view only*/
+  transition: 0.3s;
+  transition-property: left;
+  border-right: 1px solid #222831;
+}
+.library-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .library-name h3 {
+  color: var(--color);
+  margin-bottom: 2rem;
+  font-size: 24px;
+}
+
+.main-taks span {
+  color: var(--color);
+  display: block;
+  width: 100%;
+  line-height: 4rem;
+  text-decoration: none;
+  padding-left: 4rem;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+  font-size: 22px;
+  font-weight: 600;
+}
+.main-taks span:hover {
+  background: var(--background-color);
+}
