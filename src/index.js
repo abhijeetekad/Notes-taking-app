@@ -5,17 +5,20 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "../src/Context/ThemeContext.jsx";
+import { NoteProvider } from "./Context/NoteContext";
 
 // Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ThemeProvider>
+    <NoteProvider>
+      <ThemeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </NoteProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

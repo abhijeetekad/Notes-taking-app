@@ -11,12 +11,12 @@ function Sidebar() {
         <NavLink className="link" to="/main-page">
           <span>New Note</span>
         </NavLink>
+        <NavLink className="link" to="/all-notes">
+          <span>All Notes</span>
+        </NavLink>
 
         <NavLink className="link" to="/pin-note">
           <span>Pinned Notes</span>
-        </NavLink>
-        <NavLink className="link" to="/all-notes">
-          <span>All Notes</span>
         </NavLink>
 
         <NavLink className="link" to="/recycle-bin">
