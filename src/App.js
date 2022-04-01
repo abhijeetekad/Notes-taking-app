@@ -1,14 +1,31 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Footer } from "./Components/Footer/Footer";
-import { Navbar } from "./Components/Navbar/Navbar.jsx";
-import { MyRoutes } from "./MyRoutes/MyRoutes";
+import { NewNote } from "./Components/NewNote/NewNote";
+
+import { MainPage } from "./Pages/MainPage/MainPage";
+import { LandingPage } from "./Pages/LandingPage/LandingPage";
+
+import { PinNote } from "./Components/PinNote/PinNote.jsx";
+
+import { AllNotes } from "./Components/AllNotes/AllNotes.jsx";
+
+import { RecycleBin } from "./Components/RecycleBin/RecycleBin.jsx";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <MyRoutes />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/main-page" element={<MainPage page={<NewNote />} />} />
+        <Route path="pin-note" element={<MainPage page={<PinNote />} />} />
+
+        <Route path="/all-notes" element={<MainPage page={<AllNotes />} />} />
+
+        <Route
+          path="/recycle-bin"
+          element={<MainPage page={<RecycleBin />} />}
+        />
+      </Routes>
     </div>
   );
 }

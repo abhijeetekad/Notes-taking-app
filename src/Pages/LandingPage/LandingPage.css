@@ -1,6 +1,7 @@
 .landingPage {
   display: flex;
   flex-direction: column;
+  margin-top: 5rem;
 }
 .landingPage-main {
   display: flex;
