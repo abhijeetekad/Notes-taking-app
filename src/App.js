@@ -2,10 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { NewNote } from "./Components/NewNote/NewNote";
 
-// import { MyRoutes } from "./MyRoutes/MyRoutes";
 import { MainPage } from "./Pages/MainPage/MainPage";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
-// import { Navbar } from "./Components/Navbar/Navbar.jsx";
 
 import { PinNote } from "./Components/PinNote/PinNote.jsx";
 
