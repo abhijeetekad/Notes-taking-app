@@ -1,0 +1,32 @@
+:root {
+  --not-background-color: #9d9ca3;
+  --not-color: #15141a;
+}
+.all-notes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.note-card {
+  background-color: var(--not-background-color);
+  color: var(--background-color);
+  border: 1px solid #818181;
+  width: 15rem;
+  padding: 1rem;
+  position: relative;
+  border-radius: 0.5rem;
+}
+.delete-icon {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+.note-title {
+  font-weight: bolder;
+  border-bottom: 1px solid black;
+  padding: 0.5rem;
+}
+.note-descreption {
+  padding: 0.5rem;
+  height: auto;
+}
