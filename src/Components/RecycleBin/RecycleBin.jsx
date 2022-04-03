@@ -8,7 +8,7 @@ function RecycleBin() {
   const { stateNoteData, dispatchNoteData } = useNote();
   return (
     <>
-      {stateNoteData.archive.length === 0 ? (
+      {stateNoteData.recycle.length === 0 ? (
         <div className="noNotesImg">
           <h1>Recycle Bin...</h1>
           <img src={NoNotesImg} />
