@@ -6,7 +6,7 @@ import PushPinIcon from "@mui/icons-material/PushPin";
 import NoNotesImg from "../../Assets/NoNotes.png";
 function AllNotes() {
   const { stateNoteData, dispatchNoteData } = useNote();
-  console.log(stateNoteData.note.length);
+
   return (
     <>
       {stateNoteData.note.length === 0 ? (

@@ -23,8 +23,6 @@ function NewNote() {
   };
   return (
     <>
-      {/* <button onClick={() => setExtended(true)}> add note</button> */}
-
       <div className="formContainer">
         <form
           onSubmit={(e) => {
