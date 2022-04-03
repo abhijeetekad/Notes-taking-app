@@ -2,9 +2,18 @@
   --not-background-color: #9d9ca3;
   --not-color: #15141a;
 }
+.noNotesImg {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+.noNotesImg img {
+  width: 100%;
+  border-radius: 1%;
+}
 .all-notes {
   display: flex;
-  gap: 1rem;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 .note-card {
@@ -15,11 +24,24 @@
   padding: 1rem;
   position: relative;
   border-radius: 0.5rem;
+  transition: transform 0.2s;
+}
+.note-card:hover {
+  transform: scale(1.1);
 }
 .delete-icon {
   position: absolute;
-  right: 0;
+  right: 1rem;
   cursor: pointer;
+  display: flex;
+  gap: 1rem;
+}
+.archive-icon {
+  position: absolute;
+  right: 3rem;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
 }
 .note-title {
   font-weight: bolder;
@@ -29,4 +51,16 @@
 .note-descreption {
   padding: 0.5rem;
   height: auto;
+}
+.category {
+  background-color: rgb(209, 250, 250);
+  width: fit-content;
+  padding: 0.2rem;
+  border-radius: 10%;
+  font-weight: 600;
+}
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

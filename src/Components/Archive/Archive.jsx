@@ -1,28 +1,23 @@
 import React from "react";
-import "./AllNotes.css";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { useNote } from "../../Context/NoteContext";
-import PushPinIcon from "@mui/icons-material/PushPin";
+import UnarchiveIcon from "@mui/icons-material/Unarchive";
 import NoNotesImg from "../../Assets/NoNotes.png";
-function AllNotes() {
+import "./Archive.css";
+function Archive() {
   const { stateNoteData, dispatchNoteData } = useNote();
-  console.log(stateNoteData.note.length);
+
   return (
     <>
-      {stateNoteData.note.length === 0 ? (
+      {stateNoteData.archive.length === 0 ? (
         <div className="noNotesImg">
-          <h1>Write Notes...</h1>
+          <h1>Archive Notes...</h1>
           <img src={NoNotesImg} />
         </div>
       ) : (
         <div className="all-notes">
-          {stateNoteData.note.map((item) => {
+          {stateNoteData.archive.map((item) => {
             return (
               <div className="note-card">
-                <span className="delete-icon">
-                  <PushPinIcon />
-                </span>
-
                 <div className="category">{item.selectedCategory}</div>
                 <div className="note-title"> {item.title}</div>
                 <div className="note-descreption">{item.descreption}</div>
@@ -31,13 +26,13 @@ function AllNotes() {
                   <span
                     onClick={() =>
                       dispatchNoteData({
-                        type: "MOVE_TO_RECYCLE_BIN",
+                        type: "UNARCHIVE",
                         payload: item,
                       })
                     }
                     className="delete-icon"
                   >
-                    <DeleteIcon />
+                    <UnarchiveIcon />
                   </span>
                 </div>
               </div>
@@ -49,4 +44,4 @@ function AllNotes() {
   );
 }
 
-export { AllNotes };
+export { Archive };
