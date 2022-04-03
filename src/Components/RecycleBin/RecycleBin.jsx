@@ -41,7 +41,7 @@ function RecycleBin() {
                       payload: item,
                     })
                   }
-                  className="delete-icon"
+                  className="restore-icon"
                 >
                   <RestoreFromTrashIcon />
                 </span>

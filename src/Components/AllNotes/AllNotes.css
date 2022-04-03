@@ -43,6 +43,12 @@
   display: flex;
   gap: 1rem;
 }
+.restore-icon {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  bottom: 0.5rem;
+}
 .note-title {
   font-weight: bolder;
   border-bottom: 1px solid black;
