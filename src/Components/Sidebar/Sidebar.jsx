@@ -1,26 +1,58 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
+import DescriptionIcon from "@mui/icons-material/Description";
+import NoteAltIcon from "@mui/icons-material/NoteAlt";
+import ArchiveIcon from "@mui/icons-material/Archive";
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import "./Sidebar.css";
+import { useTheme } from "../../Context/ThemeContext";
+import { withTheme } from "styled-components";
 function Sidebar() {
+  const { theme } = useTheme();
+  const getActiveLinkStatus = ({ isActive }) => {
+    if (theme === "dark") {
+      return {
+        color: isActive ? "#74768F" : "#ffffff",
+        textDecoration: "none",
+      };
+    } else {
+      return {
+        color: isActive ? "#74768F" : "black",
+        textDecoration: "none",
+      };
+    }
+  };
   return (
     <div className="sidebar">
       <div className="library-name">
-        <h3>USER NAME</h3>
+        <h4>USER NAME</h4>
       </div>
       <div className="main-taks">
-        <NavLink className="link" to="/main-page">
-          <span>New Note</span>
+        <NavLink style={getActiveLinkStatus} to="/main-page">
+          <div className="sideBar-items">
+            <NoteAltIcon />
+            <span>New Note</span>
+          </div>
         </NavLink>
-        <NavLink className="link" to="/all-notes">
-          <span>All Notes</span>
+        <NavLink style={getActiveLinkStatus} to="/all-notes">
+          <div className="sideBar-items">
+            <DescriptionIcon />
+            <span>All Notes</span>
+          </div>
         </NavLink>
 
-        <NavLink className="link" to="/pin-note">
-          <span>Pinned Notes</span>
+        <NavLink style={getActiveLinkStatus} to="/archive">
+          <div className="sideBar-items">
+            <ArchiveIcon />
+            <span>Archive Notes</span>
+          </div>
         </NavLink>
 
-        <NavLink className="link" to="/recycle-bin">
-          <span>Recycle Bin</span>
+        <NavLink style={getActiveLinkStatus} to="/recycle-bin">
+          <div className="sideBar-items">
+            <DeleteSweepIcon />
+            <span>Recycle Bin</span>
+          </div>
         </NavLink>
       </div>
     </div>

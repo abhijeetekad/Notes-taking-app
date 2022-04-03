@@ -33,13 +33,21 @@
   width: 100%;
   line-height: 4rem;
   text-decoration: none;
-  padding-left: 4rem;
   box-sizing: border-box;
   transition: 0.5s;
   transition-property: background;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
 }
-.main-taks span:hover {
-  background: var(--background-color);
+
+.sideBar-items {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1.5rem;
+  padding-left: 0.5rem;
+}
+.sideBar-items:hover {
+  background-color: rgb(116, 118, 143);
+  border-radius: 0.5rem;
 }

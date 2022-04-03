@@ -13,6 +13,7 @@
   margin-left: 250px;
   margin-right: 80px;
   height: 100vh;
+  z-index: 1;
 }
 .library-content .library-components {
   display: flex;
