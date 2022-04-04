@@ -68,3 +68,21 @@
   align-items: center;
   flex-wrap: wrap;
 }
+.colorPalette {
+  background-color: white;
+  width: 4rem;
+  gap: 0.5rem;
+  height: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.colorPaletteBtn {
+  border: none;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

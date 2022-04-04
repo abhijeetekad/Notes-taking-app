@@ -21,7 +21,10 @@ function PinnedNotes() {
                 <>
                   {stateNoteData.pinNote.length !== 0 && (
                     <div>
-                      <div className="note-card">
+                      <div
+                        style={{ backgroundColor: `${item.color}` }}
+                        className="note-card"
+                      >
                         <span className="delete-icon">
                           <div
                             onClick={() =>

@@ -7,16 +7,23 @@ import "./NewNote.css";
 import ArchiveIcon from "@mui/icons-material/Archive";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import { PinnedNotes } from "../PinnedNotes/PinnedNotes";
-
+import { useTheme } from "../../Context/ThemeContext";
 function NewNote() {
+  const [showPalette, setShowPallete] = useState(false);
+  const paletteModel = () => {
+    setShowPallete(!showPalette);
+  };
   const { stateNoteData, dispatchNoteData } = useNote();
   const [newCategory, setNewCategory] = useState();
   const [isExtended, setExtended] = useState(false);
+  const { theme } = useTheme();
   const [noteInfo, setNoteInfo] = useState({
     title: "",
     descreption: "",
     id: "",
     selectedCategory: "School",
+    color: "",
+    showPalette: false,
   });
 
   const arr = ["School", "Home", "Office"];
@@ -37,6 +44,7 @@ function NewNote() {
               descreption: "",
               id: uuidv4(),
               selectedCategory: "School",
+              color: "",
             });
             dispatchNoteData({ type: "NEW_NOTE", payload: noteInfo });
           }}
@@ -115,6 +123,80 @@ function NewNote() {
             <button className="categoryBtn" onClick={addCategoryBtn}>
               Add new label
             </button>
+            <div className="ColorLensIcon">
+              <span
+                style={{ color: "black" }}
+                onClick={() => paletteModel((showPalette) => !showPalette)}
+              >
+                <ColorLensIcon />
+              </span>
+              <div className="palette">
+                {showPalette && (
+                  <div className="colorPalette">
+                    <button
+                      onClick={() =>
+                        setNoteInfo({
+                          ...noteInfo,
+                          color: "grey",
+                        })
+                      }
+                      className="colorPaletteBtn"
+                      style={{ backgroundColor: "#ecdbff" }}
+                    ></button>
+                    <button
+                      onClick={() =>
+                        setNoteInfo({
+                          ...noteInfo,
+                          color: "green",
+                        })
+                      }
+                      className="colorPaletteBtn"
+                      style={{ backgroundColor: "#dcffe3" }}
+                    ></button>
+                    <button
+                      onClick={() =>
+                        setNoteInfo({
+                          ...noteInfo,
+                          color: "tomato",
+                        })
+                      }
+                      className="colorPaletteBtn"
+                      style={{ backgroundColor: "#d9f2ff" }}
+                    ></button>
+                    <button
+                      onClick={() =>
+                        setNoteInfo({
+                          ...noteInfo,
+                          color: "yellow",
+                        })
+                      }
+                      className="colorPaletteBtn"
+                      style={{ backgroundColor: "#ffffd8" }}
+                    ></button>
+                    <button
+                      onClick={() =>
+                        setNoteInfo({
+                          ...noteInfo,
+                          color: "red",
+                        })
+                      }
+                      className="colorPaletteBtn"
+                      style={{ backgroundColor: "#ffd9fa" }}
+                    ></button>
+                    <button
+                      onClick={() =>
+                        setNoteInfo({
+                          ...noteInfo,
+                          color: "brown",
+                        })
+                      }
+                      className="colorPaletteBtn"
+                      style={{ backgroundColor: "#ffffff" }}
+                    ></button>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -124,7 +206,10 @@ function NewNote() {
         {stateNoteData.note.map((item) => {
           return (
             <div>
-              <div className="note-card">
+              <div
+                className="note-card"
+                style={{ backgroundColor: `${item.color}` }}
+              >
                 <span className="delete-icon">
                   <div
                     onClick={() =>
@@ -142,7 +227,6 @@ function NewNote() {
                 <h4 className="note-title"> {item.title}</h4>
                 <p className="note-descreption">{item.descreption}</p>
                 <div className="note-footer">
-                  <ColorLensIcon />
                   <span
                     onClick={() =>
                       dispatchNoteData({

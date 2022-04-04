@@ -71,3 +71,12 @@
   justify-content: space-between;
   align-items: center;
 }
+.ColorLensIcon {
+  position: relative;
+}
+.palette {
+  border-radius: 0.2rem;
+  position: absolute;
+  left: 1.2rem;
+  bottom: -2rem;
+}
