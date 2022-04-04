@@ -60,7 +60,6 @@ function NewNote() {
                 setNoteInfo({
                   ...noteInfo,
                   title: e.target.value,
-                  // id: uuidv4(),
                 })
               }
             />
@@ -77,7 +76,6 @@ function NewNote() {
                   setNoteInfo({
                     ...noteInfo,
                     descreption: e.target.value,
-                    // id: uuidv4(),
                   })
                 }
               />
@@ -147,7 +145,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "green",
+                          color: "#ecdbff",
                         })
                       }
                       className="colorPaletteBtn"
@@ -157,7 +155,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "tomato",
+                          color: "#dcffe3",
                         })
                       }
                       className="colorPaletteBtn"
@@ -167,7 +165,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "yellow",
+                          color: "#d9f2ff",
                         })
                       }
                       className="colorPaletteBtn"
@@ -177,7 +175,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "red",
+                          color: "#ffffd8",
                         })
                       }
                       className="colorPaletteBtn"
@@ -187,7 +185,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "brown",
+                          color: "#ffd9fa",
                         })
                       }
                       className="colorPaletteBtn"
