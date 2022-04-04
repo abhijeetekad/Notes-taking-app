@@ -19,3 +19,12 @@
   display: flex;
   flex-direction: column;
 }
+@media screen and (max-width: 780px) {
+  .library-content {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .library-content .library-components {
+    margin-left: 0;
+  }
+}

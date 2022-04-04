@@ -52,6 +52,7 @@
 .nav-header label {
   cursor: pointer;
 }
+
 @media screen and (max-width: 780px) {
   .nav-logo p {
     font-size: 20px;
