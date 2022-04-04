@@ -6,6 +6,7 @@ import ArchiveIcon from "@mui/icons-material/Archive";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 import "./Sidebar.css";
 import { useTheme } from "../../Context/ThemeContext";
+import LabelIcon from "@mui/icons-material/Label";
 import { withTheme } from "styled-components";
 function Sidebar() {
   const { theme } = useTheme();
@@ -45,6 +46,12 @@ function Sidebar() {
           <div className="sideBar-items">
             <ArchiveIcon />
             <span>Archive Notes</span>
+          </div>
+        </NavLink>
+        <NavLink style={getActiveLinkStatus} to="/label">
+          <div className="sideBar-items">
+            <LabelIcon />
+            <span>Label</span>
           </div>
         </NavLink>
 

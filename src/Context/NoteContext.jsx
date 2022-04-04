@@ -11,6 +11,7 @@ const noteFun = (state, action) => {
         ...state,
         recycle: [...state.recycle, { ...action.payload }],
         note: state.note.filter((item) => item.id !== action.payload.id),
+        pinNote: state.pinNote.filter((item) => item.id !== action.payload.id),
       };
     case "MOVE_TO_ARCHIVE":
       return {
@@ -22,6 +23,24 @@ const noteFun = (state, action) => {
           },
         ],
         note: state.note.filter((item) => item.id !== action.payload.id),
+        pinNote: state.pinNote.filter((item) => item.id !== action.payload.id),
+      };
+    case "PIN_NOTE":
+      return {
+        ...state,
+        pinNote: [
+          ...state.pinNote,
+          {
+            ...action.payload,
+          },
+        ],
+        note: state.note.filter((item) => item.id !== action.payload.id),
+      };
+    case "UN_PIN_NOTE":
+      return {
+        ...state,
+        pinNote: state.pinNote.filter((item) => item.id !== action.payload.id),
+        note: [...state.note, { ...action.payload }],
       };
     case "UNARCHIVE":
       return {
@@ -48,6 +67,7 @@ const NoteProvider = ({ children }) => {
     note: [],
     recycle: [],
     archive: [],
+    pinNote: [],
   };
   const [stateNoteData, dispatchNoteData] = useReducer(noteFun, inititalValue);
 

@@ -4,6 +4,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useNote } from "../../Context/NoteContext";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import NoNotesImg from "../../Assets/NoNotes.png";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
+
 function AllNotes() {
   const { stateNoteData, dispatchNoteData } = useNote();
 
@@ -19,7 +21,15 @@ function AllNotes() {
           {stateNoteData.note.map((item) => {
             return (
               <div className="note-card">
-                <span className="delete-icon">
+                <span
+                  onClick={() =>
+                    dispatchNoteData({
+                      type: "PIN_NOTE",
+                      payload: item,
+                    })
+                  }
+                  className="delete-icon"
+                >
                   <PushPinIcon />
                 </span>
 
@@ -27,7 +37,7 @@ function AllNotes() {
                 <div className="note-title"> {item.title}</div>
                 <div className="note-descreption">{item.descreption}</div>
                 <div className="note-footer">
-                  <p>date: </p>
+                  <ColorLensIcon />
                   <span
                     onClick={() =>
                       dispatchNoteData({

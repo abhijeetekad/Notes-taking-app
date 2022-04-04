@@ -10,6 +10,7 @@ import { AllNotes } from "./Components/AllNotes/AllNotes.jsx";
 import { RecycleBin } from "./Components/RecycleBin/RecycleBin.jsx";
 import MockmanEs from "mockman-js";
 import { Archive } from "./Components/Archive/Archive.jsx";
+import { Label } from "./Components/Label/Label.jsx";
 
 function App() {
   return (
@@ -19,9 +20,8 @@ function App() {
         <Route path="/mockman" element={<MockmanEs />} />
         <Route path="/main-page" element={<MainPage page={<NewNote />} />} />
         <Route path="archive" element={<MainPage page={<Archive />} />} />
-
+        <Route path="label" element={<MainPage page={<Label />} />} />
         <Route path="/all-notes" element={<MainPage page={<AllNotes />} />} />
-
         <Route
           path="/recycle-bin"
           element={<MainPage page={<RecycleBin />} />}
