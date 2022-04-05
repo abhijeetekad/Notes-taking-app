@@ -42,7 +42,6 @@ function PinnedNotes() {
                         <h4 className="note-title"> {item.title}</h4>
                         <p className="note-descreption">{item.descreption}</p>
                         <div className="note-footer">
-                          <ColorLensIcon />
                           <span
                             onClick={() =>
                               dispatchNoteData({

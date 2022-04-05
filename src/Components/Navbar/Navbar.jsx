@@ -11,7 +11,10 @@ function Navbar() {
   const { theme, themeToggle } = useTheme();
   const { showSidebar, sidebarToggler } = useSidebar();
   return (
-    <div className="navbar">
+    <div
+      style={{ backgroundColor: theme === "light" ? "white" : "" }}
+      className="navbar"
+    >
       <div className="nav-header">
         <div className="nav-logo">
           <label onClick={() => sidebarToggler((showSidebar) => !showSidebar)}>

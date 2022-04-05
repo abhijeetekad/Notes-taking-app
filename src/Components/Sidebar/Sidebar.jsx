@@ -29,7 +29,10 @@ function Sidebar() {
   return (
     <div>
       {showSidebar && (
-        <div className="sidebar">
+        <div
+          style={{ backgroundColor: theme === "light" ? "white" : "" }}
+          className="sidebar"
+        >
           <div className="library-name">
             <h4>USER NAME</h4>
           </div>

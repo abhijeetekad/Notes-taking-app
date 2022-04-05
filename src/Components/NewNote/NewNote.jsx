@@ -135,7 +135,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "grey",
+                          color: "#ecdbff",
                         })
                       }
                       className="colorPaletteBtn"
@@ -145,7 +145,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "#ecdbff",
+                          color: "#dcffe3",
                         })
                       }
                       className="colorPaletteBtn"
@@ -155,7 +155,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "#dcffe3",
+                          color: "#d9f2ff",
                         })
                       }
                       className="colorPaletteBtn"
@@ -165,7 +165,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "#d9f2ff",
+                          color: "#ffffd8",
                         })
                       }
                       className="colorPaletteBtn"
@@ -175,7 +175,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "#ffffd8",
+                          color: "#ffd9fa",
                         })
                       }
                       className="colorPaletteBtn"
@@ -185,7 +185,7 @@ function NewNote() {
                       onClick={() =>
                         setNoteInfo({
                           ...noteInfo,
-                          color: "#ffd9fa",
+                          color: "#ffffff",
                         })
                       }
                       className="colorPaletteBtn"
