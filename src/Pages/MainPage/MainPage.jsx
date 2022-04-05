@@ -4,7 +4,6 @@ import { Navbar } from "../../Components/Navbar/Navbar.jsx";
 import { Footer } from "../../Components/Footer/Footer.jsx";
 import { Sidebar } from "../../Components/Sidebar/Sidebar.jsx";
 import { useSidebar } from "../../Context/SidebarContext";
-// import { NewNote } from "../../Components/NewNote/NewNote.jsx";
 
 function MainPage({ page }) {
   const { showSidebar, sidebarToggler } = useSidebar();

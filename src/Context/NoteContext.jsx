@@ -73,7 +73,7 @@ const NoteProvider = ({ children }) => {
     pinNote: [],
   };
   const [stateNoteData, dispatchNoteData] = useReducer(noteFun, inititalValue);
-  console.log(stateNoteData);
+  
   return (
     <NoteContext.Provider value={{ stateNoteData, dispatchNoteData }}>
       {children}
