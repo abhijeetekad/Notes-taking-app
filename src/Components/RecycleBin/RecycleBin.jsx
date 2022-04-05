@@ -17,7 +17,10 @@ function RecycleBin() {
         <div className="all-notes">
           {stateNoteData.recycle.map((item) => {
             return (
-              <div className="note-card">
+              <div
+                style={{ backgroundColor: `${item.color}` }}
+                className="note-card"
+              >
                 <span
                   onClick={() =>
                     dispatchNoteData({

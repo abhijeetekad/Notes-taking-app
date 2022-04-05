@@ -1,12 +1,22 @@
+import { useState } from "react";
 import React from "react";
 import "./AllNotes.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useNote } from "../../Context/NoteContext";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import NoNotesImg from "../../Assets/NoNotes.png";
+import ColorLensIcon from "@mui/icons-material/ColorLens";
+// import { ColorPalette } from "../ColorPalette/ColorPalette";
+
 function AllNotes() {
   const { stateNoteData, dispatchNoteData } = useNote();
-
+  const [showPalette, setShowPallete] = useState(false);
+  const paletteModel = () => {
+    setShowPallete(!showPalette);
+  };
+  const [noteInfo, setNoteInfo] = useState({
+    color: "",
+  });
   return (
     <>
       {stateNoteData.note.length === 0 ? (
@@ -18,8 +28,19 @@ function AllNotes() {
         <div className="all-notes">
           {stateNoteData.note.map((item) => {
             return (
-              <div className="note-card">
-                <span className="delete-icon">
+              <div
+                style={{ backgroundColor: `${item.color}` }}
+                className="note-card"
+              >
+                <span
+                  onClick={() =>
+                    dispatchNoteData({
+                      type: "PIN_NOTE",
+                      payload: item,
+                    })
+                  }
+                  className="delete-icon"
+                >
                   <PushPinIcon />
                 </span>
 
@@ -27,7 +48,6 @@ function AllNotes() {
                 <div className="note-title"> {item.title}</div>
                 <div className="note-descreption">{item.descreption}</div>
                 <div className="note-footer">
-                  <p>date: </p>
                   <span
                     onClick={() =>
                       dispatchNoteData({

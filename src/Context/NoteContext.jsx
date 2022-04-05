@@ -3,6 +3,9 @@ import { createContext, useContext, useReducer, useState } from "react";
 const NoteContext = createContext();
 
 const noteFun = (state, action) => {
+  console.log("state", state);
+  console.log("action", action);
+
   switch (action.type) {
     case "NEW_NOTE":
       return { ...state, note: [...state.note, { ...action.payload }] };
@@ -11,6 +14,7 @@ const noteFun = (state, action) => {
         ...state,
         recycle: [...state.recycle, { ...action.payload }],
         note: state.note.filter((item) => item.id !== action.payload.id),
+        pinNote: state.pinNote.filter((item) => item.id !== action.payload.id),
       };
     case "MOVE_TO_ARCHIVE":
       return {
@@ -22,6 +26,24 @@ const noteFun = (state, action) => {
           },
         ],
         note: state.note.filter((item) => item.id !== action.payload.id),
+        pinNote: state.pinNote.filter((item) => item.id !== action.payload.id),
+      };
+    case "PIN_NOTE":
+      return {
+        ...state,
+        pinNote: [
+          ...state.pinNote,
+          {
+            ...action.payload,
+          },
+        ],
+        note: state.note.filter((item) => item.id !== action.payload.id),
+      };
+    case "UN_PIN_NOTE":
+      return {
+        ...state,
+        pinNote: state.pinNote.filter((item) => item.id !== action.payload.id),
+        note: [...state.note, { ...action.payload }],
       };
     case "UNARCHIVE":
       return {
@@ -48,9 +70,10 @@ const NoteProvider = ({ children }) => {
     note: [],
     recycle: [],
     archive: [],
+    pinNote: [],
   };
   const [stateNoteData, dispatchNoteData] = useReducer(noteFun, inititalValue);
-
+  
   return (
     <NoteContext.Provider value={{ stateNoteData, dispatchNoteData }}>
       {children}

@@ -30,3 +30,22 @@
   width: 100%;
   height: 100%;
 }
+@media screen and (max-width: 780px) {
+  .landingPage {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+  }
+  .landingPage-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .landingImg {
+    width: 30rem;
+    height: 20rem;
+    margin: 1rem 5rem;
+  }
+}

@@ -1,5 +1,5 @@
 .sidebar {
-  z-index: 1;
+  z-index: 100;
   top: 0;
   position: fixed;
   left: 0;
@@ -10,10 +10,11 @@
   background-color: var(--secondary-color);
   overflow-y: auto;
   height: 100%;
-  /* transform: translate(-250px); uncomment for mobile view only*/
+  /* transform: translate(-250px); */
   transition: 0.3s;
   transition-property: left;
   border-right: 1px solid #222831;
+  background-color: var(--background-color);
 }
 .library-name {
   display: flex;
@@ -50,4 +51,6 @@
 .sideBar-items:hover {
   background-color: rgb(116, 118, 143);
   border-radius: 0.5rem;
+}
+@media screen and (max-width: 780px) {
 }

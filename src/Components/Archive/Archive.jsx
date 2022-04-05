@@ -17,12 +17,14 @@ function Archive() {
         <div className="all-notes">
           {stateNoteData.archive.map((item) => {
             return (
-              <div className="note-card">
+              <div
+                style={{ backgroundColor: `${item.color}` }}
+                className="note-card"
+              >
                 <div className="category">{item.selectedCategory}</div>
                 <div className="note-title"> {item.title}</div>
                 <div className="note-descreption">{item.descreption}</div>
                 <div className="note-footer">
-                  <p>date: </p>
                   <span
                     onClick={() =>
                       dispatchNoteData({
