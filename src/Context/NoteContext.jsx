@@ -3,10 +3,9 @@ import { createContext, useContext, useReducer, useState } from "react";
 const NoteContext = createContext();
 
 const noteFun = (state, action) => {
-  console.log("state", state);
-  console.log("action", action);
-
   switch (action.type) {
+    case "ALL_DATA":
+      return { ...state, ...action.payload };
     case "NEW_NOTE":
       return { ...state, note: [...state.note, { ...action.payload }] };
     case "MOVE_TO_RECYCLE_BIN":
@@ -72,10 +71,31 @@ const NoteProvider = ({ children }) => {
     archive: [],
     pinNote: [],
   };
+  const label = ["School", "Home", "Office"];
+  const priority = ["Low", "Medium", "High"];
   const [stateNoteData, dispatchNoteData] = useReducer(noteFun, inititalValue);
-  
+  const [newCategory, setNewCategory] = useState();
+  const [newArrLabel, setNewArrLabel] = useState(label);
+
+  const addCategoryBtn = () => {
+    setNewArrLabel(newArrLabel.concat(newCategory));
+    setNewCategory("");
+  };
+
   return (
-    <NoteContext.Provider value={{ stateNoteData, dispatchNoteData }}>
+    <NoteContext.Provider
+      value={{
+        stateNoteData,
+        dispatchNoteData,
+        label,
+        priority,
+        newArrLabel,
+        setNewArrLabel,
+        addCategoryBtn,
+        newCategory,
+        setNewCategory,
+      }}
+    >
       {children}
     </NoteContext.Provider>
   );

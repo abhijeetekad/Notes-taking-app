@@ -60,6 +60,17 @@
   padding: 0.5rem;
   height: auto;
 }
+.card-labels {
+  display: flex;
+  gap: 0.3rem;
+}
+.priority {
+  background-color: rgb(252, 204, 204);
+  width: fit-content;
+  padding: 0.2rem;
+  border-radius: 10%;
+  font-weight: 600;
+}
 .category {
   background-color: rgb(209, 250, 250);
   width: fit-content;

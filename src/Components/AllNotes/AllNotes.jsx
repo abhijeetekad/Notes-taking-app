@@ -5,18 +5,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useNote } from "../../Context/NoteContext";
 import PushPinIcon from "@mui/icons-material/PushPin";
 import NoNotesImg from "../../Assets/NoNotes.png";
-import ColorLensIcon from "@mui/icons-material/ColorLens";
-// import { ColorPalette } from "../ColorPalette/ColorPalette";
 
 function AllNotes() {
   const { stateNoteData, dispatchNoteData } = useNote();
-  const [showPalette, setShowPallete] = useState(false);
-  const paletteModel = () => {
-    setShowPallete(!showPalette);
-  };
-  const [noteInfo, setNoteInfo] = useState({
-    color: "",
-  });
   return (
     <>
       {stateNoteData.note.length === 0 ? (
@@ -44,10 +35,14 @@ function AllNotes() {
                   <PushPinIcon />
                 </span>
 
-                <div className="category">{item.selectedCategory}</div>
+                <div className="card-labels">
+                  <div className="priority">{item.selectedPriority}</div>
+                  <div className="category">{item.selectedCategory}</div>
+                </div>
                 <div className="note-title"> {item.title}</div>
                 <div className="note-descreption">{item.descreption}</div>
                 <div className="note-footer">
+                  <p>Date: {item.date}</p>
                   <span
                     onClick={() =>
                       dispatchNoteData({

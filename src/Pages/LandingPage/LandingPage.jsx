@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import landingImg from "../../Assets/undraw_Taking_notes_re_bnaf.png";
-import { Footer } from "../../Components/Footer/Footer";
+
 import { Navbar } from "../../Components/Navbar/Navbar.jsx";
 import "./LandingPage.css";
 function LandingPage() {
@@ -26,7 +26,6 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
