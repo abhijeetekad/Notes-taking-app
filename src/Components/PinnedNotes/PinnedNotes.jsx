@@ -34,8 +34,16 @@ function PinnedNotes() {
                             <PushPinIcon />
                           </div>
                         </span>
+                        <div className="card-labels">
+                          {" "}
+                          <div className="priority">
+                            {item.selectedPriority}
+                          </div>
+                          <div className="category">
+                            {item.selectedCategory}
+                          </div>
+                        </div>
 
-                        <div className="category">{item.selectedCategory}</div>
                         <h4 className="note-title"> {item.title}</h4>
                         <p className="note-descreption">{item.descreption}</p>
                         <div className="note-footer">

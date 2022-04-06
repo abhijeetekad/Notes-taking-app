@@ -21,7 +21,10 @@ function Archive() {
                 style={{ backgroundColor: `${item.color}` }}
                 className="note-card"
               >
-                <div className="category">{item.selectedCategory}</div>
+                <div className="card-labels">
+                  <div className="priority">{item.selectedPriority}</div>
+                  <div className="category">{item.selectedCategory}</div>
+                </div>
                 <div className="note-title"> {item.title}</div>
                 <div className="note-descreption">{item.descreption}</div>
                 <div className="note-footer">

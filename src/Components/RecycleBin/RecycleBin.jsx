@@ -32,7 +32,10 @@ function RecycleBin() {
                 >
                   <DeleteIcon />
                 </span>
-                <div className="category">{item.selectedCategory}</div>
+                <div className="card-labels">
+                  <div className="priority">{item.selectedPriority}</div>
+                  <div className="category">{item.selectedCategory}</div>
+                </div>
                 <div className="note-title">Title: {item.title}</div>
                 <div className="note-descreption">
                   Descreption: {item.descreption}
