@@ -1,13 +1,9 @@
 import React from "react";
 import { useNote } from "../../Context/NoteContext";
-
-import { v4 as uuidv4 } from "uuid";
-
 import PushPinIcon from "@mui/icons-material/PushPin";
 import DeleteIcon from "@mui/icons-material/Delete";
-
 import ArchiveIcon from "@mui/icons-material/Archive";
-import ColorLensIcon from "@mui/icons-material/ColorLens";
+
 function PinnedNotes() {
   const { stateNoteData, dispatchNoteData } = useNote();
   return (
@@ -27,6 +23,7 @@ function PinnedNotes() {
                       >
                         <span className="delete-icon">
                           <div
+                            style={{ color: "black" }}
                             onClick={() =>
                               dispatchNoteData({
                                 type: "UN_PIN_NOTE",
@@ -42,6 +39,7 @@ function PinnedNotes() {
                         <h4 className="note-title"> {item.title}</h4>
                         <p className="note-descreption">{item.descreption}</p>
                         <div className="note-footer">
+                          <p>Date: {item.date}</p>
                           <span
                             onClick={() =>
                               dispatchNoteData({

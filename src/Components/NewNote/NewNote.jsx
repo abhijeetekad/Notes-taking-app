@@ -7,48 +7,75 @@ import "./NewNote.css";
 import ArchiveIcon from "@mui/icons-material/Archive";
 import ColorLensIcon from "@mui/icons-material/ColorLens";
 import { PinnedNotes } from "../PinnedNotes/PinnedNotes";
-import { useTheme } from "../../Context/ThemeContext";
+
 function NewNote() {
   const [showPalette, setShowPallete] = useState(false);
   const paletteModel = () => {
     setShowPallete(!showPalette);
   };
-  const { stateNoteData, dispatchNoteData } = useNote();
-  const [newCategory, setNewCategory] = useState();
+
+  const {
+    stateNoteData,
+    dispatchNoteData,
+    priority,
+    newArrLabel,
+    addCategoryBtn,
+    newCategory,
+    setNewCategory,
+  } = useNote();
+  const d = new Date();
+  let date = d.getDate();
+  let day = d.getDay();
+  let year = d.getFullYear();
+
   const [isExtended, setExtended] = useState(false);
-  const { theme } = useTheme();
   const [noteInfo, setNoteInfo] = useState({
     title: "",
     descreption: "",
-    id: "",
+    id: uuidv4(),
     selectedCategory: "School",
     color: "",
-    showPalette: false,
+    showColorPalette: false,
+    selectedPriority: "Low",
+    date: `${date}/${day}/${year}`,
   });
 
-  const arr = ["School", "Home", "Office"];
-  const [newArr, setNewArr] = useState(arr);
-  const addCategoryBtn = () => {
-    setNewArr(newArr.concat(newCategory));
-    setNewCategory("");
+  const noteSubmitHandler = (e) => {
+    e.preventDefault();
+    setNoteInfo({
+      title: "",
+      descreption: "",
+      id: uuidv4(),
+      selectedCategory: "School",
+      selectedPriority: "Low",
+      color: "",
+    });
+    dispatchNoteData(
+      { type: "NEW_NOTE", payload: noteInfo },
+      { type: "ALL_DATA", payload: noteInfo }
+    );
+  };
+  const titleChangeHandler = (e) => {
+    setNoteInfo({
+      ...noteInfo,
+      title: e.target.value,
+    });
+  };
+  const descreptionChangeHandler = (e) => {
+    setNoteInfo({
+      ...noteInfo,
+      descreption: e.target.value,
+    });
+  };
+
+  const newLabelHandler = (e) => {
+    setNewCategory(e.target.value);
   };
 
   return (
     <>
       <div className="formContainer">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            setNoteInfo({
-              title: "",
-              descreption: "",
-              id: uuidv4(),
-              selectedCategory: "School",
-              color: "",
-            });
-            dispatchNoteData({ type: "NEW_NOTE", payload: noteInfo });
-          }}
-        >
+        <form onSubmit={noteSubmitHandler}>
           <div className="form-catageory">
             <input
               className="input-title"
@@ -56,12 +83,7 @@ function NewNote() {
               name="title"
               value={noteInfo.title}
               placeholder="Title"
-              onChange={(e) =>
-                setNoteInfo({
-                  ...noteInfo,
-                  title: e.target.value,
-                })
-              }
+              onChange={titleChangeHandler}
             />
           </div>
 
@@ -72,12 +94,7 @@ function NewNote() {
                 value={noteInfo.descreption}
                 className="form-input"
                 placeholder="Take a Note"
-                onChange={(e) =>
-                  setNoteInfo({
-                    ...noteInfo,
-                    descreption: e.target.value,
-                  })
-                }
+                onChange={descreptionChangeHandler}
               />
             </div>
           )}
@@ -96,26 +113,38 @@ function NewNote() {
 
         {isExtended && (
           <div className="form-label">
-            <form>
-              <select
-                required
-                className="form-details"
-                onChange={(e) =>
-                  setNoteInfo({ ...noteInfo, selectedCategory: e.target.value })
-                }
-              >
-                {newArr.map((item) => (
-                  <option required value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </form>
+            <select
+              required
+              className="form-details"
+              onChange={(e) =>
+                setNoteInfo({ ...noteInfo, selectedPriority: e.target.value })
+              }
+            >
+              {priority.map((item) => (
+                <option required value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            <select
+              required
+              className="form-details"
+              onChange={(e) =>
+                setNoteInfo({ ...noteInfo, selectedCategory: e.target.value })
+              }
+            >
+              {newArrLabel.map((item) => (
+                <option required value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+
             <input
               className="form-details"
               type="text"
               value={newCategory}
-              onChange={(e) => setNewCategory(e.target.value)}
+              onChange={newLabelHandler}
               placeholder="Create new label"
             />
             <button className="categoryBtn" onClick={addCategoryBtn}>
@@ -198,6 +227,7 @@ function NewNote() {
           </div>
         )}
       </div>
+      {/* <FilterNotes /> */}
       <PinnedNotes />
       <h2>All Notes :</h2>
       <div className="all-notes">
@@ -210,6 +240,7 @@ function NewNote() {
               >
                 <span className="delete-icon">
                   <div
+                    style={{ color: "White" }}
                     onClick={() =>
                       dispatchNoteData({
                         type: "PIN_NOTE",
@@ -220,11 +251,16 @@ function NewNote() {
                     <PushPinIcon />
                   </div>
                 </span>
+                <div className="card-labels">
+                  <div className="priority">{item.selectedPriority}</div>
+                  <div className="category">{item.selectedCategory}</div>
+                </div>
 
-                <div className="category">{item.selectedCategory}</div>
                 <h4 className="note-title"> {item.title}</h4>
                 <p className="note-descreption">{item.descreption}</p>
+
                 <div className="note-footer">
+                  <p>Date: {item.date}</p>
                   <span
                     onClick={() =>
                       dispatchNoteData({
